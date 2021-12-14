@@ -6,7 +6,7 @@ server {
     access_log  /config/log/nginx/notifiarr_access.log local;
     include     /config/nginx/ssl.conf;
     include     /config/nginx/proxy.conf;
-    set $sweet  https://webserver.best.net;
+    set $sweet  https://10.1.0.212;
     location    / {
         proxy_pass $sweet$request_uri;
     }

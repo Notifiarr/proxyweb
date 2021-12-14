@@ -6,7 +6,7 @@ server {
     access_log  /config/log/nginx/mybakerspro_access.log local;
     include     /config/nginx/ssl.conf;
     include     /config/nginx/proxy.conf;
-    set $mybakerspro https://webserver.best.net;
+    set $mybakerspro https://10.1.0.212;
     location    / {
         proxy_pass $mybakerspro$request_uri;
     }

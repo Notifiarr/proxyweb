@@ -14,7 +14,7 @@ services:
       - TZ=UTC
       - URL=notifiarr.com
       - SUBDOMAINS=wildcard
-      - EXTRA_DOMAINS=mybakerspro.com,wildcard.mybakerspro.com,customsweetsntreats.com,wildcard.customsweetsntreats.com
+      - EXTRA_DOMAINS=mybakerspro.com,*.mybakerspro.com,customsweetsntreats.com,*.customsweetsntreats.com,notifiarr.wiki,*.notifiarr.wiki
       - VALIDATION=dns
       - DNSPLUGIN=cloudflare
     volumes:
