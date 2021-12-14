@@ -1,14 +1,14 @@
 # Da wiki.
 
 server {
-    server_name notifiarr.wiki www.notifiarr.wiki;
-    set $server http://10.1.0.212:3000;
-    access_log  /config/log/nginx/notifiarr.wiki_access.log local;
+  set $server http://10.1.0.212:3000;
+  server_name notifiarr.wiki www.notifiarr.wiki;
+  access_log  /config/log/nginx/notifiarr.wiki_access.log local;
 
-    listen      443 ssl http2;
-    include     /config/nginx/ssl.conf;
-    include     /config/nginx/proxy.conf;
-    location    / {
-        proxy_pass $server$request_uri;
-    }
+  listen   443 ssl http2;
+  include  /config/nginx/ssl.conf;
+  include  /config/nginx/proxy.conf;
+  location / {
+    proxy_pass $server$request_uri;
+  }
 }
