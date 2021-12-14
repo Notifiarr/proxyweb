@@ -1,7 +1,7 @@
 # Da wiki.
 
 server {
-  set $server http://10.1.0.212:3000;
+  set $server http://10.1.0.226:3000;
   server_name notifiarr.wiki www.notifiarr.wiki;
   access_log  /config/log/nginx/notifiarr.wiki_access.log local;
 
