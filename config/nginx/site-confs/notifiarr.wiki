@@ -1,4 +1,4 @@
-# Notifiarr.com and friends.
+# Da wiki.
 
 server {
     server_name notifiarr.wiki www.notifiarr.wiki;

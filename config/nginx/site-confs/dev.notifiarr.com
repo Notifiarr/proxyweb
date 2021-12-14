@@ -1,4 +1,4 @@
-# Notifiarr.com and friends.
+# dev and test site, goes to new server.
 
 server {
     server_name dev.notifiarr.com test.notifiarr.com;

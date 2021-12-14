@@ -1,4 +1,4 @@
-# Notifiarr.com and friends.
+# Da new wiki. For testing the new install.
 
 server {
     server_name new.notifiarr.wiki;
