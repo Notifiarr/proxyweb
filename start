@@ -1,1 +1,7 @@
+# Use this script to start the swag container.
+
+pushd ~swag > /dev/null
+
 sudo docker-compose up -d
+
+popd > /dev/null

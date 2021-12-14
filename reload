@@ -1,2 +1,7 @@
 # Use this script to reload nginx configs without restarting nginx or the container.
+
+pushd ~swag > /dev/null
+
 sudo docker exec -it swag nginx -c /config/nginx/nginx.conf -s reload
+
+popd > /dev/null
