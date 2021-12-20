@@ -22,3 +22,10 @@ services:
     ports:
       - 443:443
     restart: unless-stopped
+
+  cloudflare-ddns:
+    image: oznu/cloudflare-ddns
+    container_name: ddns
+    env_file:
+      - /home/swag/.env-cloudflare-ddns
+    restart: unless-stopped
