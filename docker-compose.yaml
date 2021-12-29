@@ -14,11 +14,18 @@ services:
       - TZ=UTC
       - URL=notifiarr.com
       - SUBDOMAINS=wildcard
-      - EXTRA_DOMAINS=mybakerspro.com,wildcard.mybakerspro.com,customsweetsntreats.com,wildcard.customsweetsntreats.com
+      - EXTRA_DOMAINS=mybakerspro.com,*.mybakerspro.com,customsweetsntreats.com,*.customsweetsntreats.com,notifiarr.wiki,*.notifiarr.wiki,discordnotifier.com,*.discordnotifier.com
       - VALIDATION=dns
       - DNSPLUGIN=cloudflare
     volumes:
       - /home/swag/config:/config
     ports:
       - 443:443
+    restart: unless-stopped
+
+  cloudflare-ddns:
+    image: oznu/cloudflare-ddns
+    container_name: ddns
+    env_file:
+      - /home/swag/.env-cloudflare-ddns
     restart: unless-stopped

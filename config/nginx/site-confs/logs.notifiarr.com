@@ -1,9 +1,9 @@
-# mybakerspro.com
+# pastebin app
 
 server {
-  set $server https://10.1.0.212;
-  server_name mybakerspro.com *.mybakerspro.com;
-  access_log  /config/log/nginx/mybakerspro_access.log local;
+  set $server https://10.1.0.226;
+  server_name logs.notifiarr.com;
+  access_log  /config/log/nginx/logs.notifiarr_access.log local;
 
   listen   443 ssl http2;
   include  /config/nginx/ssl.conf;
