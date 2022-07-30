@@ -21,7 +21,22 @@ services:
       - /home/swag/config:/config
     ports:
       - 443:443
+      - 80:80
     restart: unless-stopped
+
+  auth-proxy:
+    image: docker.io/golift/mysql-auth-proxy
+    container_name: auth
+    environment:
+      - MYSQL_HOST=notifiarr:3306
+      - MYSQL_NAME=notifiarr
+      - MYSQL_USER=proxy
+      - MYSQL_PASS_FILE=/password
+    ports:
+      - 8080:8080
+    restart: unless-stopped
+    volumes:
+      - /home/swag/.mysqlsecret:/password:ro
 
   cloudflare-ddns:
     image: oznu/cloudflare-ddns

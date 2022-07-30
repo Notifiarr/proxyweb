@@ -12,4 +12,7 @@ server {
     proxy_set_header x-api-key $remote_api_key;
     proxy_pass $server$request_uri;
   }
+  location /proxyfiles/ {
+    root /config/www;
+  }
 }

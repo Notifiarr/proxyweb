@@ -1,0 +1,14 @@
+# Notifiarr.dev (local).
+
+server {
+  set $server https://10.1.0.226;
+  server_name notifiarr.dev;
+  access_log  /config/log/nginx/notifiarr.dev_access.log local;
+
+  listen  80;
+  include  /config/nginx/proxy.conf;
+  location / {
+    proxy_set_header host dev.notifiarr.com;
+    proxy_pass $server$request_uri;
+  }
+}
