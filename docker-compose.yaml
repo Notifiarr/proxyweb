@@ -14,7 +14,7 @@ services:
       - TZ=UTC
       - URL=notifiarr.com
       - SUBDOMAINS=wildcard
-      - EXTRA_DOMAINS=mybakerspro.com,*.mybakerspro.com,customsweetsntreats.com,*.customsweetsntreats.com,notifiarr.wiki,*.notifiarr.wiki,discordnotifier.com,*.discordnotifier.com
+      - EXTRA_DOMAINS=mybakerspro.com,*.mybakerspro.com,customsweetsntreats.com,*.customsweetsntreats.com,notifiarr.wiki,*.notifiarr.wiki,discordnotifier.com,*.discordnotifier.com,*.notifiarr.app
       - VALIDATION=dns
       - DNSPLUGIN=cloudflare
     volumes:
@@ -31,12 +31,14 @@ services:
       - MYSQL_HOST=notifiarr:3306
       - MYSQL_NAME=notifiarr
       - MYSQL_USER=proxy
-      - MYSQL_PASS_FILE=/password
+      - MYSQL_PASS_FILE=/mysqlsecret
+      - SECRET_FILE=/password
     ports:
       - 8080:8080
     restart: unless-stopped
     volumes:
-      - /home/swag/.mysqlsecret:/password:ro
+      - /home/swag/.mysqlsecret:/mysqlsecret:ro
+      - /home/swag/.password:/password:ro
 
   cloudflare-ddns:
     image: oznu/cloudflare-ddns
