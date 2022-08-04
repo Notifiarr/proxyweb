@@ -1,7 +1,7 @@
-# dev site
+# legacy dev site
 
 server {
-  server_name dev.notifiarr.com;
+  server_name dev.discordnotifier.com;
   access_log  /config/log/nginx/dev.notifiarr_access.log local;
 
   listen   443 ssl http2;

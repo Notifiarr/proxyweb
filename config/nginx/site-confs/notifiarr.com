@@ -1,7 +1,7 @@
 # Notifiarr.com and friends.
 
 server {
-  server_name notifiarr.com www.notifiarr.com discordnotifier.com www.discordnotifier.com;
+  server_name notifiarr.com www.notifiarr.com;
   access_log  /config/log/nginx/notifiarr_access.log local;
 
   listen   443 ssl http2;
