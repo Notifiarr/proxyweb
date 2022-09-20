@@ -33,12 +33,15 @@ services:
       - MYSQL_USER=proxy
       - MYSQL_PASS_FILE=/mysqlsecret
       - SECRET_FILE=/password
+      - LOG_FILE=/logs/access.log
+      - ERROR_FILE=/logs/error.log
     ports:
       - 8080:8080
     restart: unless-stopped
     volumes:
       - /home/swag/.mysqlsecret:/mysqlsecret:ro
       - /home/swag/.password:/password:ro
+      - /home/swag/config/log/authproxy:/logs
 
   cloudflare-ddns:
     image: oznu/cloudflare-ddns
@@ -46,3 +49,12 @@ services:
     env_file:
       - /home/swag/.env-cloudflare-ddns
     restart: unless-stopped
+  golift:
+    image: golift/turbovanityurls:unstable
+    container_name: golift
+    environment:
+      - PORT=8081
+    ports: 
+      - 8081:8081
+    volumes:
+      - /usr/local/etc/turbovanityurls/config.yaml:/home/swag/golift/config.yaml

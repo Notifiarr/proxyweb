@@ -2,7 +2,7 @@
 
 server {
   server_name notifiarr.com www.notifiarr.com;
-  access_log  /config/log/nginx/notifiarr_access.log local;
+  access_log  /config/log/nginx/notifiarr.com/access.log withauth;
 
   listen   443 ssl http2;
   include  /config/nginx/ssl.conf;
@@ -10,7 +10,7 @@ server {
   include  /config/nginx/upstream.conf;
   include  /config/nginx/apiauth.conf;
 
-  location /proxyfiles/ {
-    root /config/www;
+  location ~ ^/proxyfiles(.*) {
+    return 301 https://unstable.notifiarr.app$1;
   }
 }

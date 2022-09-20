@@ -1,24 +1,33 @@
-# Notifiarr.com and friends.
+# notifiarr.app handles non-live website requests for notifiarr.
 
 server {
   server_name *.notifiarr.app;
-  access_log  /config/log/nginx/notifiarr_app_access.log local;
+  access_log  /config/log/nginx/notifiarr.app/access.log normal;
 
   listen   443 ssl http2;
   include  /config/nginx/ssl.conf;
   include  /config/nginx/proxy.conf;
   include  /config/nginx/upstream.conf;
-  include  /config/nginx/apiauth.conf;
+
+#  location /api {
+#    default_type text/html;
+#    return 421 "api requests belong on notifiarr.com";
+#  }
 }
 
 server {
   server_name notifiarr.app;
-  access_log  /config/log/nginx/notifiarr_app_access.log local;
+  access_log  /config/log/nginx/notifiarr.app/access.log normal;
 
   listen   443 ssl http2;
   include  /config/nginx/ssl.conf;
 
+  location /api {
+    default_type text/html;
+    return 421 "api requests belong on notifiarr.com";
+  }
+
   location / {
-     return 301 https://notifiarr.com;
+     return 301 https://notifiarr.com$request_uri;
   }
 }
