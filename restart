@@ -1,8 +1,0 @@
-# Use this script to fully-restart the swag container.
-# This will not re-generate certs. Stop and start for that.
-
-pushd ~swag > /dev/null
-
-sudo docker-compose restart
-
-popd > /dev/null

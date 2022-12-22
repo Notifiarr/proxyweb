@@ -1,2 +1,0 @@
-echo "Current Date: $(date)" 
-curl -s proxy:8080/stats | jq .auth

@@ -1,6 +1,0 @@
-#!/bin/bash
-
-sudo docker pull golift/mysql-auth-proxy
-sudo docker pull ghcr.io/linuxserver/swag
-sudo docker pull oznu/cloudflare-ddns
-
