@@ -5,4 +5,3 @@ authelia-server.conf
 dhparams.pem
 ldap-location.conf
 ldap-server.conf
-ldap.conf
