@@ -1,5 +1,4 @@
 *.sample
-*.md
 authelia-location.conf
 authelia-server.conf
 dhparams.pem
