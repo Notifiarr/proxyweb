@@ -4,3 +4,4 @@ authelia-server.conf
 dhparams.pem
 ldap-location.conf
 ldap-server.conf
+proxy-confs
